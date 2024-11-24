@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shot Result</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">  <!-- Optional CSS link -->
+</head>
+<body>
+
+    <h1>Shot Simulation Result</h1>
+    
+    <h2>Player: {{ shot.player.name }}</h2>
+    <p><strong>Club Used:</strong> {{ shot.club.name }}</p>
+    <p><strong>Shot Distance:</strong> {{ shot.distance }} yards</p>
+    
+    <h3>Conditions:</h3>
+    <ul>
+        <li><strong>Weather:</strong> {{ shot.weather }}</li>
+        <li><strong>Wind Speed:</strong> {{ shot.wind_speed }} mph</li>
+        <li><strong>Terrain:</strong> {{ shot.terrain }}</li>
+    </ul>
+
+    <h3>Result:</h3>
+    <p>Great job, {{ shot.player.name }}! You just hit a shot with a <strong>{{ shot.club.name }}</strong> over a distance of <strong>{{ shot.distance }} yards</strong> under <strong>{{ shot.weather }}</strong> conditions with a wind speed of <strong>{{ shot.wind_speed }} mph</strong> on <strong>{{ shot.terrain }}</strong> terrain.</p>
+
+    <p><a href="{% url 'simulate_shot' %}">Try Another Shot</a></p> <!-- Link to go back and try again -->
+
+</body>
+</html>

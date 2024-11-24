@@ -1,0 +1,21 @@
+<form method="post">
+    {% csrf_token %}
+    <label for="player">Select Player:</label>
+    <select name="player_id">
+        {% for player in players %}
+            <option value="{{ player.id }}">{{ player.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="club">Select Club:</label>
+    <select name="club_id">
+        {% for club in clubs %}
+            <option value="{{ club.id }}">{{ club.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label for="distance">Enter Shot Distance:</label>
+    <input type="number" name="distance" required>
+
+    <button type="submit">Simulate Shot</button>
+</form>
